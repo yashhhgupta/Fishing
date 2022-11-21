@@ -876,14 +876,14 @@ void landingPage(void)
 {
     glClear(GL_COLOR_BUFFER_BIT);
     glBegin(GL_POLYGON);
-    glColor3f(0.6234, 0.56, 0.4745);
+    glColor3f(0, 0, 0);
     glVertex2i(0, 0);
     glVertex2i(0, 500);
     glVertex2i(500, 500);
     glVertex2i(500, 0);
     glEnd();
 
-    glColor3f(1.0, 1.0, 0.0);
+    glColor3f(1.0, 1.0, 1.0);
     glRasterPos2i(175, 450);
     glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, 'F');
     glRasterPos2i(200, 450);
@@ -900,7 +900,7 @@ void landingPage(void)
     glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, 'G');
     glEnd();
 
-    glColor3f(1.0, 0.0, 0.0);
+    glColor3f(1.0, 1.0, 1.0);
     glRasterPos2i(75, 375);
     glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, 'G');
     glRasterPos2i(100, 375);
@@ -916,7 +916,7 @@ void landingPage(void)
     
     glEnd();
 
-    glColor3f(0.0, 0.0, 1.0);
+    glColor3f(1.0, 1.0, 1.0);
     glRasterPos2i(75, 350);
     glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, 'M');
     glRasterPos2i(100, 350);
@@ -933,7 +933,7 @@ void landingPage(void)
     // glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, 'T');
     glEnd();
 
-    glColor3f(0.0, 0.0, 1.0);
+    glColor3f(1.0, 1.0, 1.0);
     glRasterPos2i(75, 325);
     glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, 'S');
     glRasterPos2i(100, 325);
@@ -950,7 +950,7 @@ void landingPage(void)
     // glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, 'Y');
     glEnd();
 
-    glColor3f(0.0, 0.0, 1.0);
+    glColor3f(1.0, 1.0, 1.0);
     glRasterPos2i(75, 300);
     glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, 'A');
     glRasterPos2i(100, 300);
@@ -980,7 +980,7 @@ void landingPage(void)
     // glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, 'I');
     // glEnd();
 
-    glColor3f(0.0, 0.0, 1.0);
+    glColor3f(1.0, 1.0, 1.0);
     glRasterPos2i(75, 275);
     glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, 'Y');
     glRasterPos2i(100, 275);
