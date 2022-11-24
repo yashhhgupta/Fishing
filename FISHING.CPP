@@ -227,6 +227,40 @@ void scalefish_third()
     fish_second();
 }
 
+void fin_fish(){
+    glBegin(GL_POLYGON);
+    glColor3f(0.6, 0.8, 0.5);
+    glVertex2i(330, -25);
+    glVertex2i(325, -40);
+    glVertex2i(332.5, -30);
+    glVertex2i(325, -40);
+    glEnd();
+    glBegin(GL_POLYGON);
+    glColor3f(0.6, 0.8, 0.5);
+    glVertex2i(350, -25);
+    glVertex2i(355, -40);
+    glVertex2i(347.5, -30);
+    glVertex2i(350, -25);
+    glEnd();
+    glBegin(GL_POINTS);
+    glColor3f(0.0, 0.0, 0.0);
+    glVertex2i(338.5, -8);
+    glEnd();
+    glBegin(GL_POLYGON);
+    glColor3ub(255, 191, 128);
+    glVertex2i(245, 78);
+    glVertex2i(235, 63);
+    glVertex2i(243, 64);
+    glVertex2i(248, 72);
+    glEnd();
+    glBegin(GL_POLYGON);
+    glVertex2i(235, 63);
+    glVertex2i(254, 48);
+    glVertex2i(254, 55);
+    glVertex2i(243, 64);
+    glEnd();
+}
+
 void man_first()
 {
     glColor3ub(0, 0, 0);
@@ -340,37 +374,7 @@ void man_first()
     glEnd();
 
     //Fins of Fish
-    glBegin(GL_POLYGON);
-    glColor3f(0.6, 0.8, 0.5);
-    glVertex2i(330, -25);
-    glVertex2i(325, -40);
-    glVertex2i(332.5, -30);
-    glVertex2i(325, -40);
-    glEnd();
-    glBegin(GL_POLYGON);
-    glColor3f(0.6, 0.8, 0.5);
-    glVertex2i(350, -25);
-    glVertex2i(355, -40);
-    glVertex2i(347.5, -30);
-    glVertex2i(350, -25);
-    glEnd();
-    glBegin(GL_POINTS);
-    glColor3f(0.0, 0.0, 0.0);
-    glVertex2i(338.5, -8);
-    glEnd();
-    glBegin(GL_POLYGON);
-    glColor3ub(255, 191, 128);
-    glVertex2i(245, 78);
-    glVertex2i(235, 63);
-    glVertex2i(243, 64);
-    glVertex2i(248, 72);
-    glEnd();
-    glBegin(GL_POLYGON);
-    glVertex2i(235, 63);
-    glVertex2i(254, 48);
-    glVertex2i(254, 55);
-    glVertex2i(243, 64);
-    glEnd();
+    fin_fish();
 
     //Belt
     glBegin(GL_POLYGON);
@@ -427,18 +431,18 @@ void wire()
     glColor3f(0.0, 0.0, 0.0);
     glBegin(GL_POLYGON);
     glVertex2i(375, 500);
-    glVertex2i(375, 460);
-    glVertex2i(372.5, 460);
+    glVertex2i(375, 400);
+    glVertex2i(372.5, 400);
     glVertex2i(372.5, 500);
     glEnd();
 
     //For Food Block
     glColor3f(1.0, 1.0, 0.0);
     glBegin(GL_POLYGON);
-    glVertex2i(368, 460);
-    glVertex2i(368, 445);
-    glVertex2i(382, 445);
-    glVertex2i(382, 460);
+    glVertex2i(368, 400);
+    glVertex2i(368, 385);
+    glVertex2i(382, 385);
+    glVertex2i(382, 400);
     glEnd();
 }
 
@@ -643,7 +647,7 @@ void scalefishfood()
 {
     glPushMatrix();
     glScaled(0.6, 0.5, 0.0);
-    glTranslated(250, 515, 0);
+    glTranslated(250, 410, 0);
     fish();
     glPopMatrix();
 }
@@ -722,7 +726,7 @@ void display4(void)
             glPushMatrix();
             glTranslatef(x, 0.0, 0.0);
             scalefish_first();
-            x = x - 0.3;
+            x = x - 0.2;
             glPopMatrix();
             glPopMatrix();
             glPopMatrix();
@@ -732,7 +736,7 @@ void display4(void)
             glPushMatrix();
             glPushMatrix();
             glTranslatef(y, 0.0, 0.0);
-            y = y + 0.3;
+            y = y + 0.2;
             scalefish_second();
             glPopMatrix();
             glPopMatrix();
@@ -765,29 +769,56 @@ void display3(void)
     glClear(GL_COLOR_BUFFER_BIT);
     glClearColor(0.0, 0.5, 0.9, 0.0);
     wire();
-    for (int i = 0; i < 4000; i++)
+    double y1 = 8.0;
+    for (int i = 0; i < 5000; i++)
     {
         {
             glClear(GL_COLOR_BUFFER_BIT);
+            glPushMatrix();
+            glPushMatrix();
+            glPushMatrix();
+            glPushMatrix();
+            glTranslatef(0.0, y1, 0.0);
             wire();
-            glPushMatrix();
-            glPushMatrix();
-            glPushMatrix();
-            glPushMatrix();
+            if(i%500==0 && !(i%1000==0)) y1 = y1 - 8;
+            else if(i%1000==0) y1 = y1 + 8;
+            glPopMatrix();
+            glPopMatrix();
+            glPopMatrix();
+            glPopMatrix();
 
+            
+                // glPushMatrix();
+                // glPushMatrix();
+                // glPushMatrix();
+                // glPushMatrix();
+                // glTranslatef(0.0, y1, 0.0);
+                // wire();
+                // y1 = y1 + 0.3;
+                // glPopMatrix();
+                // glPopMatrix();
+                // glPopMatrix();
+                // glPopMatrix();
+            
+
+            glPushMatrix();
+            glPushMatrix();
+            glPushMatrix();
+            glPushMatrix();
             glTranslatef(x, 0.0, 0.0);
             scalefish_first();
-            x = x - 0.3;
+            x = x - 0.2;
             glPopMatrix();
             glPopMatrix();
             glPopMatrix();
             glPopMatrix();
+
             glPushMatrix();
             glPushMatrix();
             glPushMatrix();
             glPushMatrix();
             glTranslatef(y, 0.0, 0.0);
-            y = y + 0.3;
+            y = y + 0.1;
             scalefish_second();
             glPopMatrix();
             glPopMatrix();
@@ -821,7 +852,7 @@ void display1(void)
             glPushMatrix();
             glTranslatef(x, 0.0, 0.0);
             scalefish_first();
-            x = x - 0.4;
+            x = x - 0.1;
             glPopMatrix();
             glPopMatrix();
             glPopMatrix();
@@ -833,7 +864,7 @@ void display1(void)
             glPushMatrix();
             glTranslatef(y, 0.0, 0.0);
             scalefish_second();
-            y = y + 0.3;
+            y = y + 0.2;
             glPopMatrix();
             glPopMatrix();
             glPopMatrix();
@@ -854,7 +885,8 @@ void display1(void)
 }
 void display2(void)
 {
-    for (int i = 0; i < 700; i++)
+    x=0;
+    for (int i = 0; i < 800; i++)
     {
         glClear(GL_COLOR_BUFFER_BIT);
         sky();
@@ -883,7 +915,7 @@ void landingPage(void)
     glVertex2i(500, 0);
     glEnd();
 
-    glColor3f(1.0, 1.0, 1.0);
+    glColor3f(0.0, 0.0, 1.0);
     glRasterPos2i(175, 450);
     glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, 'F');
     glRasterPos2i(200, 450);
@@ -900,7 +932,7 @@ void landingPage(void)
     glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, 'G');
     glEnd();
 
-    glColor3f(1.0, 1.0, 1.0);
+    glColor3f(0.220, 0.95, 0.0);
     glRasterPos2i(75, 375);
     glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, 'G');
     glRasterPos2i(100, 375);
